@@ -5,7 +5,7 @@ pipeline {
         stage("Build") {
             steps {
                 
-                echo "Building with Maven"
+                echo "Building the code project"
             }
             post {
                 always {
@@ -18,37 +18,37 @@ pipeline {
 
         stage("Unit and Integration Tests") {
             steps {
-                echo "Running unit and integration tests with Maven"
+                echo "Running unit and integration tests using Marvern..."
             }
         }
 
         stage("Code Analysis") {
             steps {
-                echo "Analyzing code with SonarQube"
+                echo "Analyzing code with Sonacube..."
             }
         }
 
         stage("Security Scan") {
             steps {
-                echo "Performing security scan with OWASP Dependency-Check"
+                echo "Performing security scan right now..."
             }
         }
 
         stage("Deploy to Staging") {
             steps {
-                echo "Deploying to staging server"
+                echo "Deploying to staging server with AWS"
             }
         }
 
         stage("Integration Tests on Staging") {
             steps {
-                echo "Running integration tests on staging environment"
+                echo "Running integration tests on staging environment like AWS"
             }
         }
 
         stage("Deploy to Production") {
             steps {
-                echo "Deploying to production server (e.g., AWS EC2 instance)"
+                echo "Deploying to production server with AWS..."
             }
         }
     }

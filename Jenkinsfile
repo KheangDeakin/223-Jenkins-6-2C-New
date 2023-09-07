@@ -4,64 +4,51 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                echo "Building the code..."
                 
+                echo "Building with Maven"
             }
             post {
                 always {
                     mail to: "newtaltar@gmail.com",
                         subject: "Build Status Email",
                         body: "Build Successfull!"
-                        
                 }
             }
-        
+        }
 
         stage("Unit and Integration Tests") {
             steps {
-                echo "Running unit and integration tests..."
-                
+                echo "Running unit and integration tests with Maven"
             }
         }
 
         stage("Code Analysis") {
             steps {
-                echo "Analyzing the code..."
-                
+                echo "Analyzing code with SonarQube"
             }
         }
 
         stage("Security Scan") {
             steps {
-                echo "Performing security scan..."
-                
+                echo "Performing security scan with OWASP Dependency-Check"
             }
         }
 
         stage("Deploy to Staging") {
             steps {
-                echo "Deploying to staging environment..."
-                
+                echo "Deploying to staging server"
             }
         }
 
         stage("Integration Tests on Staging") {
             steps {
-                echo "Running integration tests on staging..."
-               
+                echo "Running integration tests on staging environment"
             }
         }
 
         stage("Deploy to Production") {
             steps {
-                echo "Deploying to production environment..."
-                
-            }
-        }
-        
-        stage("Complete"){
-            steps{
-                echo "Deployment Complete"
+                echo "Deploying to production server (e.g., AWS EC2 instance)"
             }
         }
     }

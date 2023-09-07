@@ -11,6 +11,7 @@ pipeline {
                 always {
                     mail to: "newtaltar@gmail.com",
                         subject: "Build Status Email",
+                        body: "Build Successfull!"
                         
                 }
             }
